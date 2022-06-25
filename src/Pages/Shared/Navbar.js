@@ -1,14 +1,14 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 function Navbar() {
   const menuItems = (
     <>
-      <li><Link to="/home">Home</Link></li>
-      <li><Link to="/">Appointment</Link></li>
-      <li><Link to="/">Review</Link></li>
-      <li><Link to="/">Contact</Link></li>
-      <li><Link to="/about">About</Link></li>
-      <li><Link to="/">Login</Link></li>
+      <li><NavLink to="/home">Home</NavLink></li>
+      <li><NavLink to="/">Appointment</NavLink></li>
+      <li><NavLink to="/">Review</NavLink></li>
+      <li><NavLink to="/">Contact</NavLink></li>
+      <li><NavLink to="/about">About</NavLink></li>
+      <li><NavLink to="/login">Login</NavLink></li>
     </>
   );
 
