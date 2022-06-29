@@ -12,11 +12,9 @@ function AppointmentBanner({ date, setDate }) {
       }}
       className="hero min-h-screen"
     >
-      <div className="hero-content flex-col lg:flex-row-reverse">
-        <div className="flex-1">
-          <img src={chair} className="max-w-sm rounded-lg shadow-2xl" alt="Dentist Chair" />
-        </div>
-        <div className="flex-1">
+      <div className="hero-content flex-col lg:flex-row-reverse max-w-7xl mx-auto md:px-12">
+        <img src={chair} className="max-w-md rounded-lg shadow-2xl md:ml-12" alt="Dentist Chair" />
+        <div className="md:mr-12">
           <DayPicker
             mode="single"
             selected={date}
