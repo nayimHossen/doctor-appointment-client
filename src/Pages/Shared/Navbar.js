@@ -4,7 +4,7 @@ function Navbar() {
   const menuItems = (
     <>
       <li><NavLink to="/home">Home</NavLink></li>
-      <li><NavLink to="/">Appointment</NavLink></li>
+      <li><NavLink to="/appointment">Appointment</NavLink></li>
       <li><NavLink to="/">Review</NavLink></li>
       <li><NavLink to="/">Contact</NavLink></li>
       <li><NavLink to="/about">About</NavLink></li>
