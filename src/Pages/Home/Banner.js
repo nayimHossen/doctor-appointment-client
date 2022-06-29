@@ -1,10 +1,11 @@
+import bannerbg from "../../assets/images/bg.png";
 import bannerImg from "../../assets/images/chair.png";
 
 function Banner() {
   return (
-    <div className="hero px-0 min-h-screen">
+    <div style={{ background: `url(${bannerbg})` }} className="hero px-0 min-h-screen">
       <div className="hero-content flex-col lg:flex-row-reverse">
-        <img src={bannerImg} className="max-w-sm rounded-lg shadow-2xl" alt="banner" />
+        <img src={bannerImg} className="max-w-lg rounded-lg shadow-2xl" alt="banner" />
         <div>
           <h1 className="text-5xl font-bold">Your New Smile Starts Here</h1>
           <p className="py-6">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat aliquid vitae nam reprehenderit cupiditate, harum blanditiis quaerat quibusdam officiis nihil.</p>
