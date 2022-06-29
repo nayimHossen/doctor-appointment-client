@@ -2,7 +2,7 @@ import bannerImg from "../../assets/images/chair.png";
 
 function Banner() {
   return (
-    <div className="hero min-h-screen md:px-12">
+    <div className="hero px-0 min-h-screen">
       <div className="hero-content flex-col lg:flex-row-reverse">
         <img src={bannerImg} className="max-w-sm rounded-lg shadow-2xl" alt="banner" />
         <div>

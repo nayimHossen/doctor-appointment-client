@@ -13,7 +13,7 @@ function Navbar() {
   );
 
   return (
-    <div className="navbar justify-center bg-base-100">
+    <div className="navbar md:justify-center bg-base-100">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex="0" className="btn btn-ghost lg:hidden">
