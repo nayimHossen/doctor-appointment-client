@@ -5,10 +5,10 @@ import InfoCard from "./InfoCard";
 
 function Info() {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-[-100px]">
-      <InfoCard cardTitle="Opening Hours" bgClass="bg-gradient-to-r from-secondary to-primary" img={clock} />
-      <InfoCard cardTitle="Our Locations" bgClass="bg-accent" img={location} />
-      <InfoCard cardTitle="Contact Us" bgClass="bg-gradient-to-r from-secondary to-primary" img={phone} />
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-[-80px] max-w-7xl mx-auto md:px-12">
+      <InfoCard cardTitle="Opening Hours" infoBg="bg-gradient-to-r from-secondary to-primary" img={clock} />
+      <InfoCard cardTitle="Our Locations" infoBg="bg-accent" img={location} />
+      <InfoCard cardTitle="Contact Us" infoBg="bg-gradient-to-r from-secondary to-primary" img={phone} />
     </div>
   );
 }

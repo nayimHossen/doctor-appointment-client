@@ -2,7 +2,7 @@ import treatment from "../../assets/images/treatment.png";
 
 function Exceptional() {
   return (
-    <div className="hero min-h-screen">
+    <div className="hero min-h-screen max-w-7xl mx-auto md:px-12">
       <div className="hero-content flex-col lg:flex-row">
         <img src={treatment} className="max-w-sm rounded-lg shadow-2xl" alt="img" />
         <div>
