@@ -100,7 +100,7 @@ function Login() {
           <p>
             <small>
               New to Doctors Portal
-              <Link className="text-primary" to="/signup">Create New Account</Link>
+              <Link className="text-primary" to="/register">Create New Account</Link>
             </small>
           </p>
           <div className="divider">OR</div>
