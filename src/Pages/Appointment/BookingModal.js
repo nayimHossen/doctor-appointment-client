@@ -1,13 +1,16 @@
 import { format } from "date-fns";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { toast } from "react-toastify";
-import auth from "../../Firebase/firebase.init";
+import auth from "../../firebase.init";
 
-function BookingModal({ date, treatment, setTreatment }) {
-  const { _id, name, slots } = treatment;
+function BookingModal({
+  date, treatment, setTreatment, refetch,
+}) {
+  const {
+    _id, name, slots, price,
+  } = treatment;
   const [user] = useAuthState(auth);
-  const formattedDate = format(date, "pp");
-
+  const formattedDate = format(date, "PP");
   const handleBooking = (event) => {
     event.preventDefault();
     const slot = event.target.slot.value;
@@ -15,14 +18,15 @@ function BookingModal({ date, treatment, setTreatment }) {
     const booking = {
       treatmentId: _id,
       treatment: name,
-      data: formattedDate,
+      date: formattedDate,
       slot,
+      price,
       patient: user.email,
       patientName: user.displayName,
       phone: event.target.phone.value,
     };
 
-    fetch("http://localhost:5000/booking", {
+    fetch("https://secret-dusk-46242.herokuapp.com/booking", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -32,12 +36,12 @@ function BookingModal({ date, treatment, setTreatment }) {
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
-          toast.success(`Appointment is set, ${formattedDate} at ${slot}`);
+          toast(`Appointment is set, ${formattedDate} at ${slot}`);
         } else {
-          toast.error(`You have alridy Appointment on, ${data.booking?.date} at ${data.booking?.slot}`);
+          toast.error(`Already have and appointment on ${data.booking?.date} at ${data.booking?.slot}`);
         }
-        // to close the modal
         setTreatment(null);
+        refetch();
       });
   };
 
@@ -55,11 +59,18 @@ function BookingModal({ date, treatment, setTreatment }) {
             <input type="text" disabled value={format(date, "PP")} className="input input-bordered w-full max-w-xs" />
             <select name="slot" className="select select-bordered w-full max-w-xs">
               {
-                slots.map((slot) => <option value={slot}>{slot}</option>)
+                slots.map((slot, index) => (
+                  <option
+                    key={index}
+                    value={slot}
+                  >
+                    {slot}
+                  </option>
+                ))
               }
             </select>
-            <input type="text" name="name" placeholder="Your Name" className="input input-bordered w-full max-w-xs" />
-            <input type="email" name="email" placeholder="Email Address" className="input input-bordered w-full max-w-xs" />
+            <input type="text" name="name" disabled value={user?.displayName || ""} className="input input-bordered w-full max-w-xs" />
+            <input type="email" name="email" disabled value={user?.email || ""} className="input input-bordered w-full max-w-xs" />
             <input type="text" name="phone" placeholder="Phone Number" className="input input-bordered w-full max-w-xs" />
             <input type="submit" value="Submit" className="btn btn-secondary w-full max-w-xs" />
           </form>

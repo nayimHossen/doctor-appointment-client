@@ -1,6 +1,6 @@
+import Footer from "../Shared/Footer";
 import Banner from "./Banner";
 import Contact from "./Contact";
-import Exceptional from "./Exceptional";
 import Info from "./Info";
 import MakeAppointment from "./MakeAppointment";
 import Services from "./Services";
@@ -12,10 +12,10 @@ function Home() {
       <Banner />
       <Info />
       <Services />
-      <Exceptional />
       <MakeAppointment />
       <Testimonials />
       <Contact />
+      <Footer />
     </div>
   );
 }

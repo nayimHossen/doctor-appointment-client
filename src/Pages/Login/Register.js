@@ -1,7 +1,7 @@
 import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfile } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
-import auth from "../../Firebase/firebase.init";
+import auth from "../../firebase.init";
 import Loading from "../Shared/Loading";
 
 function Register() {

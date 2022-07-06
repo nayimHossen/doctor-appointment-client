@@ -1,27 +1,31 @@
 import { signOut } from "firebase/auth";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { Link, NavLink } from "react-router-dom";
-import auth from "../../Firebase/firebase.init";
+import { Link } from "react-router-dom";
+import auth from "../../firebase.init";
 
 function Navbar() {
   const [user] = useAuthState(auth);
 
   const logout = () => {
     signOut(auth);
+    localStorage.removeItem("accessToken");
   };
+
   const menuItems = (
     <>
-      <li><NavLink to="/home">Home</NavLink></li>
-      <li><NavLink to="/appointment">Appointment</NavLink></li>
-      <li><NavLink to="/">Review</NavLink></li>
-      <li><NavLink to="/">Contact</NavLink></li>
-      <li><NavLink to="/about">About</NavLink></li>
+      <li><Link to="/">Home</Link></li>
+      <li><Link to="/appointment">Appointment</Link></li>
+      <li><Link to="/review">Review</Link></li>
+      <li><Link to="/contact">Contact</Link></li>
+      <li><Link to="/about">About</Link></li>
+      {
+        user && <li><Link to="/dashboard">Dashboard</Link></li>
+      }
       <li>{user ? <button className="btn btn-ghost" onClick={logout}>Sign Out</button> : <Link to="/login">Login</Link>}</li>
     </>
   );
-
   return (
-    <div className="navbar md:justify-center">
+    <div className="navbar bg-base-100">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex="0" className="btn btn-ghost lg:hidden">
@@ -31,12 +35,17 @@ function Navbar() {
             {menuItems}
           </ul>
         </div>
-        <Link to="/" className="btn btn-ghost normal-case text-2xl">Doctor Portal</Link>
+        <a className="btn btn-ghost normal-case text-xl">Doctors Portal</a>
       </div>
-      <div className="navbar-center hidden md:flex lg:flex">
+      <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal p-0">
           {menuItems}
         </ul>
+      </div>
+      <div className="navbar-end">
+        <label tabIndex="1" htmlFor="dashboard-sidebar" className="btn btn-ghost lg:hidden">
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+        </label>
       </div>
     </div>
   );

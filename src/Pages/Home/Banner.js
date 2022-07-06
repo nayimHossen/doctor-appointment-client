@@ -1,15 +1,15 @@
-import bannerbg from "../../assets/images/bg.png";
-import bannerImg from "../../assets/images/chair.png";
+import chair from "../../assets/images/chair.png";
+import PrimaryButton from "../Shared/PrimaryButton";
 
 function Banner() {
   return (
-    <div style={{ background: `url(${bannerbg})` }} className="hero px-0 min-h-screen">
-      <div className="hero-content flex-col lg:flex-row-reverse max-w-7xl mx-auto md:px-12">
-        <img src={bannerImg} className="max-w-lg rounded-lg shadow-2xl" alt="banner" />
+    <div className="hero min-h-screen">
+      <div className="hero-content flex-col lg:flex-row-reverse">
+        <img src={chair} className="max-w-sm rounded-lg shadow-2xl" alt="" />
         <div>
           <h1 className="text-5xl font-bold">Your New Smile Starts Here</h1>
-          <p className="py-6">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat aliquid vitae nam reprehenderit cupiditate, harum blanditiis quaerat quibusdam officiis nihil.</p>
-          <button className="btn btn-primary uppercase text-white font-bold bg-gradient-to-r from-secondary to-primary">Get Started</button>
+          <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+          <PrimaryButton>Get Started</PrimaryButton>
         </div>
       </div>
     </div>
