@@ -9,7 +9,7 @@ function Footer() {
       }}
       className="p-10"
     >
-      <div className="footer">
+      <div className="footer max-w-7xl mx-auto px-12">
         <div>
           <span className="footer-title">Services</span>
           <a className="link link-hover">Branding</a>

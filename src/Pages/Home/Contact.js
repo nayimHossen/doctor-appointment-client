@@ -9,7 +9,7 @@ function Contact() {
       }}
       className="bg-primary px-10 py-14 "
     >
-      <div className="text-center pb-14 text-white">
+      <div className="text-center pb-14 text-white max-w-7xl mx-auto px-12">
         <p className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-br from-accent to-secondary">
           Contact Us
         </p>

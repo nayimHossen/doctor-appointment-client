@@ -8,7 +8,7 @@ function AddDoctor() {
     register, formState: { errors }, handleSubmit, reset,
   } = useForm();
 
-  const { data: services, isLoading } = useQuery("services", () => fetch("https://secret-dusk-46242.herokuapp.com/service").then((res) => res.json()));
+  const { data: services, isLoading } = useQuery("services", () => fetch("http://localhost:5000/service").then((res) => res.json()));
 
   const imageStorageKey = "4295ac4d47b569312bea67b440cdbdbb";
 
@@ -40,7 +40,7 @@ function AddDoctor() {
             img,
           };
           // send to your database
-          fetch("https://secret-dusk-46242.herokuapp.com/doctor", {
+          fetch("http://localhost:5000/doctor", {
             method: "POST",
             headers: {
               "content-type": "application/json",
